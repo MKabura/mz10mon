@@ -1,5 +1,5 @@
 async function loadCategory() {
-    const endpoint = "https://script.google.com/macros/s/AKfycbz4T9ev723nI65LqtDNH9nEQWQaXdmB2l-S6Wz0D_7y/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbyUcTaFeinmyI69fZuMLDWs-NARzO70uy-j-LSoutlakfGI9SgWkS5Tm62fjQQ68ELE_A/exec";
 
     const params = new URLSearchParams(window.location.search);
     const category = params.get("cat");
