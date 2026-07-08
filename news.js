@@ -15,7 +15,7 @@ async function loadArticle() {
     }
     document.getElementById("article-title").textContent = article.title;
     document.getElementById("article-date").textContent = article.date;
-    document.getElementById("article-image").src = article.image;
+    document.getElementById("article-image").src = "images/" + article.image;
     document.getElementById("article-body").innerHTML = article.body;
 }
 
