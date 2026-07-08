@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // =====  新着記事取得(data/news.json) =====
 async function loadNews() {
-    const endpoint = "https://script.google.com/macros/s/AKfycbyP8hy4mNaUENxYDtSCFpP3X9uIr9NpA-obaNbYiD7A15SCQewa17ZGb6GiI6xXyhVUkg/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbyUcTaFeinmyI69fZuMLDWs-NARzO70uy-j-LSoutlakfGI9SgWkS5Tm62fjQQ68ELE_A/exec";
     const res = await fetch(endpoint);
     const data = await res.json();
     renderNews(data);
