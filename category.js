@@ -17,7 +17,8 @@ async function loadCategory() {
     filtered.forEach(item => {
         container.innerHTML += `
             <div class="news-card">
-                <img src="images/${item.image}" alt="">
+                <img src="https://mkabura.github.io/mz10mon/images/${item.image}" alt="">
+                // <img src="images/${item.image}" alt="">
                 <h3>${item.title}</h3>
                 <p class="date">${item.date}</p>
                 <p>${item.summary}</p>
