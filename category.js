@@ -1,30 +1,33 @@
-async function loadCategory() {
-    const endpoint = "https://script.google.com/macros/s/AKfycbyUcTaFeinmyI69fZuMLDWs-NARzO70uy-j-LSoutlakfGI9SgWkS5Tm62fjQQ68ELE_A/exec";
-
+function loadCategory() {
     const params = new URLSearchParams(window.location.search);
     const category = params.get("cat");
 
     document.getElementById("category-title").textContent = category;
 
-    const res = await fetch(endpoint);
-    const items = await res.json();
+    const callbackName = "handleData";
 
-    const filtered = items.filter(item => item.category === category);
+    window[callbackName] = function(items) {
+        const filtered = items.filter(item => item.category === category);
 
-    const container = document.getElementById("category-list");
-    container.innerHTML = "";
+        const container = document.getElementById("category-list");
+        container.innerHTML = "";
 
-    filtered.forEach(item => {
-        container.innerHTML += `
-            <div class="news-card">
-                <img src="https://mkabura.github.io/mz10mon/images/${item.image}" alt="">
-                // <img src="images/${item.image}" alt="">
-                <h3>${item.title}</h3>
-                <p class="date">${item.date}</p>
-                <p>${item.summary}</p>
-                <a href="news.html?id=${item.id}" class="more">続きを読む</a>
-            </div>
-        `;
-    });
+        filtered.forEach(item => {
+            container.innerHTML += `
+                <div class="news-card">
+                    <img src="images/${item.image}" alt="">
+                    <h3>${item.title}</h3>
+                    <p class="date">${item.date}</p>
+                    <p>${item.summary}</p>
+                    <a href="news.html?id=${item.id}" class="more">続きを読む</a>
+                </div>
+            `;
+        });
+    };
+
+    const script = document.createElement("script");
+    script.src = `https://script.google.com/macros/s/AKfycbz4T9ev723nI65LqtDNH9nEQWQaXdmB2l-S6Wz0D_7y/exec?callback=${callbackName}`;
+    document.body.appendChild(script);
 }
+
 loadCategory();
