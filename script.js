@@ -111,12 +111,15 @@ function renderNews(items) {
         const card = document.createElement("div");
         card.className = "news-card";
 
+        // 画像が空、または存在しない場合の判定
+        const imageSrc = item.image ? `images/${item.image}` : 'images/logo.jpg';
+
         card.innerHTML = `
-            <img src="images/${item.image}" alt="">
-            <h3>${item.title}</h3>
-            <p class="date">${item.date}</p>
-            <p>${item.summary}</p>
-            <a href="${item.url}" class="more">続きを読む</a>
+            <img src="${imageSrc}" alt="" onerror="if (this.src !== 'images/logo.jpg') this.src = 'images/logo.jpg';">
+            <h3>${item.title || 'タイトルなし'}</h3>
+            <p class="date">${item.date || ''}</p>
+            <p>${item.summary || ''}</p>
+            <a href="${item.url || '#'}" class="more">続きを読む</a>
         `;
 
         // 初期状態（非表示）
@@ -126,7 +129,7 @@ function renderNews(items) {
 
         container.appendChild(card);
 
-        // ★ 次のフレームでアニメーション開始
+        // 次のフレームでアニメーション開始
         requestAnimationFrame(() => {
             setTimeout(() => {
                 card.style.opacity = '1';
