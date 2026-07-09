@@ -12,10 +12,12 @@ function loadCategory() {
         const container = document.getElementById("category-list");
         container.innerHTML = "";
 
-        filtered.forEach(item => {
+        filtered.forEach(item => { 
+            // 画像が空、または存在しない場合の判定
+            const imageSrc = item.image ? `images/${item.image}` : 'images/logo.jpg';
             container.innerHTML += `
                 <div class="news-card">
-                    <img src="images/${item.image}" alt="">
+                    <img src="${imageSrc}" alt="" onerror="if (this.src !== 'images/logo.jpg') this.src = 'images/logo.jpg';">
                     <h3>${item.title}</h3>
                     <p class="date">${item.date}</p>
                     <p>${item.summary}</p>
