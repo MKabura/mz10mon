@@ -112,7 +112,7 @@ function renderNews(items) {
         card.className = "news-card";
 
         card.innerHTML = `
-            <img src="images/${item.image}" alt="" onerror="images/logo.jpg"; this.onerror=null;">
+            <img src="images/${item.image}" alt="" "if (this.src !== 'images/logo.jpg') { this.src = 'images/logo.jpg'; } else { this.src = ''; }">
             <h3>${item.title}</h3>
             <p class="date">${item.date}</p>
             <p>${item.summary}</p>
