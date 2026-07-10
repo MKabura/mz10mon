@@ -1,5 +1,5 @@
 async function loadArticle() {
-    const endpoint = "https://script.google.com/macros/s/AKfycbwy1nj82p6D1kYc6cv--IrWp4aK6vtMrC1zXy5Ba5URYbLLmFkKgiyP_rBCrUYQktedXw/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbwCbiKDLU2ZAajfpMwXm0FU1JtFWGyupDnbNwXAPRygmTRcPRsWtxCKCI7NSULHitv2jg/exec";
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
