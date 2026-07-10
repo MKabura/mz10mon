@@ -105,6 +105,12 @@ async function loadNews() {
 
 function renderNews(items) {
     const container = document.getElementById("news-list");
+    const container = document.getElementById('target-element-id');
+if (container) {
+    container.innerHTML = '...';
+} else {
+    console.warn('ニュース表示用コンテナが見つかりません');
+}
     container.innerHTML = ""; // 初期化
 
     items.forEach((item, index) => {
